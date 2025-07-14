@@ -4,6 +4,14 @@ const Home = () => {
   const chatbotUrl = process.env.NEXT_PUBLIC_CHATBOT_URL!;
 
   useEffect(() => {
+    const ua = navigator.userAgent.toLowerCase();
+    const isZalo = ua.includes('zalo');
+
+    if (!isZalo) {
+      // Redirect nếu không mở từ Zalo
+      window.location.href = "https://ubndphuong.vn";
+    }
+
     const blockRightClick = (e: MouseEvent) => e.preventDefault();
     const blockKeys = (e: KeyboardEvent) => {
       if (
