@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 
 const Home = () => {
+  const chatbotUrl = process.env.NEXT_PUBLIC_CHATBOT_URL!;
+
   useEffect(() => {
     const blockRightClick = (e: MouseEvent) => e.preventDefault();
     const blockKeys = (e: KeyboardEvent) => {
@@ -25,7 +27,7 @@ const Home = () => {
   return (
     <div style={{ height: '100vh', margin: 0, padding: 0 }}>
       <iframe
-        src="https://chatbot-dvc.vercel.app"
+        src={chatbotUrl}
         style={{ width: '100%', height: '100%', border: 'none' }}
         sandbox="allow-scripts allow-same-origin"
         allow="clipboard-write"
